@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery IN ONE GAUDY AF PAGE</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <style>
+            .red{
+                background: red !important;
+            }
+
+            body{
+                font-size: 17px;
+                font-family: arial;
+                background-color: #f4f4f4;
+                line-height:1.5em;
+            }
+
+            header{
+                background: #333;
+                color: #fff;
+                padding: 20px;
+                text-align: center;
+                border-bottom: 4px #000 solid;
+                margin-bottom: 10px;
+            }
+
+            .container{
+                width: 90%;
+                margin: auto;
+                padding: 10px;
+            }
+        </style>
+        <style>
+            .myClass{background:#333; color:blue;}
+            #myDiv, #myDiv2{border:1px solid red;}
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>jQuery IN ONE GAUDY AF PAGE</h1>
+        </header>
+        <div class="container">
+            <h1 id="heading1">Lesson One: Intro &amp; Selectors</h1>
+            <p id="para1">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto temporibus, <span>$('p span').css('color', 'red');</span> neque similique error doloremque aspernatur nobis aliquam perferendis consequuntur aut consectetur accusamus.
+            </p>
+            <h1 class="heading2">Heading One</h1>
+            <p class="para2">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto temporibus, <span>$('p span').css('color', 'red');</span> neque similique error doloremque aspernatur nobis aliquam perferendis consequuntur aut consectetur accusamus.
+            </p>
+            <span>I'm a span</span>
+
+            <ul id="list">
+                <li>$('ul#list li:first').css('color', 'red'); // ...zero is even trollololol.</li>
+                <li>$('ul#list li:even').css('background', 'yellow');</li>
+                <li>$('ul#list li:odd').css('background', 'lightblue');</li>
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>$('ul#list li:nth-child(3n)').css('list-style', 'none')</li>
+                <li>$('ul#list li:last').css('color', 'green');</li>
+            </ul>
+
+            <input type="button" value="Button 1">
+            <input type="text" value="Text 1">
+            <input type="submit" value="Submit 1">
+
+            <a href="http://google.com">Google</a>
+            <a href="http://yahoo.com"> Yahoo</a>
+        </div>
+
+        <div class="container">
+            <h1 id="heading1">Lesson Two: Events</h1>
+            <p class="para1">
+                The three buttons below use the hide(), show(), and toggle() methods to alter this paragraph of text. Isn't that wild?
+            </p>
+            <button id="btn1">Hide p</button>
+            <button id="btn2">Show p</button>
+            <button id="btn3">Toggle p</button>
+            <button id="btn4">Double click to set paragraphs to red.</button>
+            <button id="btn5">Hover to reset p color.</button>
+            <button id="btn7">Click to wtf. Release to relieve.</button>
+            <button id="btn8">Click to console.log() this click event. Whoa.</button>
+            <div style="display:flex;">
+                <button id="btn6" style="height:300px; width:300px; margin: 1em 1em 1em 0;">
+                    This button toggles a class on all 'button' DOM elements onmousemove().
+                </button>
+                <button id="btn9" style="height:300px; width:300px; margin: 1em 1em 1em 0;">
+                    This button will log Chromes e.clientX and e.clientY mouse coords onmousemove(). <br><br>Don't say I didn't warn you.<br>
+                    <span id="coords"></span>
+                </button>
+            </div>
+
+            <h3>Practical Coords: <span id="practicalCoords"></span></h3>
+
+            <form id="form">
+                <label>Name</label>
+                <input type="text" id="name" name="name">
+                <br>
+                <label>Email</label>
+                <input type="email" id="email" name="email">
+                <br>
+                <label>Gender</label>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div class="container">
+            <h1>Lesson 3: DOM Manipulation</h1>
+
+
+            <p class="para1">This paragraph had multiple CSS props manipulated via .css({prop:'value', prop: 'value'}).</p>
+            <p class="para2">This paragraph had a class added by method .addClass('className').</p>
+            <p class="para3 myClass">This paragraph had it's class removed by removeClass('className').</p>
+            <button id="btn3-1">Click to toggleClass().</button>
+            <p class="para4">This button's class can be toggled by the button using .toggleClass('className').</p>
+            <p class="para5">This is another paragraph</p>
+            <p class="para6">This paragraph was pulled from the document flow and added to the end of this list using appendTo().</p>
+            <p class="para7">This paragraph was pulled from the document flow and added to the beginning of this list using prependTo().</p>
+
+            <div id="myDiv"></div>
+            <div id="myDiv2"></div>
+
+            <br><hr><br>
+
+
+            <button id="btn3-2">Click to .append('') an li to the ul.</button>
+            <button id="btn3-3">Click to .prepend('') an li to the ul.</button>
+            <button id="btn3-4">Click to .empty() ul.</button>
+            <button id="btn3-5">Click to .detach() lis from the DOM.</button>
+
+            <ul id="lesson3ul">
+                <li>List Item 001</li>
+                <li>List Item 002</li>
+                <li>List Item 003</li>
+                <li>List Item 004</li>
+            </ul>
+
+            <br><hr><br>
+
+            <button id="btn3-6">Change anchor target attribute.</button>
+            <button id="btn3-7">Click anchor href attribute.</button>
+            <button id="btn3-8">Click to disable anchor.</button>
+            <a id="attrChange" href="#" target="_self" style="font-size:40px; color:green;">Ready.</a>
+
+            <br><hr><br>
+
+            <button id="btn3-9">DANGER: WRAP ALL P TAGS IN H1 TAGS.</button>
+
+            <br><hr><br>
+
+            <input type="text" id="newItem">
+            <button id="btn3-10">Clear list.</button>
+            <ul id="addList">
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+                <li>List Item 4</li>
+            </ul>
+
+            <br><hr><br>
+
+            <input type="text" id="newUser" />
+            <button id="printUsers">Print users array.</button>
+            <ul id="users">
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+                <li>List Item 4</li>
+            </ul>
+
+        </div>
+
+        <code>
+
+        </code>
+
+
+        <script src="./lessons_1_and_2.js" charset="utf-8"></script>
+        <script src="./lesson_3.js" charset="utf-8"></script>
+        <script charset="utf-8">
+            // Self Invoking Anonymous Function
+            $(document).ready(function(){
+
+            });
+        </script>
+    </body>
+</html>
