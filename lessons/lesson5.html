@@ -1,0 +1,75 @@
+<h1>Lesson 5: AJAX</h1>
+
+<div id="result"></div>
+
+<div id="result2"></div>
+
+<ul id="users2"></ul>
+
+<h3>Add Post</h3>
+<p>(jQuery AJAX POST request to remote server)</p>
+<form action="https://jsonplaceholder.typicode.com/posts" id="postForm">
+    <input type="text" placeholder="Title" id="title">
+    <br>
+    <textarea name="" id="body" cols="30" rows="10" placeholder="Body"></textarea>
+    <br>
+    <input type="submit" value="submit"></input>
+</form>
+
+<h3>These Posts Retrieved from https://jsonplaceholder.typicode.com/posts via AJAX.</h3>
+<ul id="posts">
+</ul>
+
+<script type="text/javascript">
+        // AJAX SEEMS MORE RELIABLE WHEN IN THE SAME DOCUMENT
+    $(document).ready(function(){
+        // LOAD WITH ALERT OR TRY/CATCH
+        $('#result').load('ajax/ajaxTest.html', function(responseTxt, statusTxt, xhr){
+            if(statusTxt == "success"){
+                // alert('AJAX: ajaxTest.html was found and loaded.');
+            }
+            else if (statusTxt == "error"){
+                // alert("AJAX: Error loading ajaxTest.html: "+xhr.statusText);
+            }
+        });
+
+        //LOAD SILENTLY
+        $.get('ajax/ajaxTest2.html', function(data){
+            $('#result2').html(data);
+        });
+
+        //LOAD JSON AND ADD VIA .each
+        $.getJSON('ajax/users.json', function(data){
+            $('#users2').prepend('<p style="color:red !important;">Loading li elements from users.json via AJAX...</p>');
+            $.each(data, function(i, user){
+                $('ul#users2').append('<li>'+user.firstName+'</li>');
+            });
+        });
+
+        $.ajax({
+            method:'GET',
+            url: 'https://jsonplaceholder.typicode.com/posts',
+            dataType: 'json'
+        }).done(function(data){
+            console.log(data);
+            $.map(data, function(post, i){
+                $('#posts').append('<h4>'+post.title+'</h4><p>'+post.body+'</p>');
+            });
+        });
+
+        $('#postForm').submit(function(e){
+            e.preventDefault();
+            var title = $('#title').val();
+            var body = $('#body').val();
+            var url = $(this).attr('action');
+
+            $.post(url, {title:title, body:body}).
+                done(function(data){
+                    console.log('Post Saved');
+                    console.log(data);
+                });
+        });
+
+    });
+
+</script>

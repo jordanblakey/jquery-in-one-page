@@ -1,4 +1,3 @@
-$(document).ready(function(){
     $('p.para1').css({color:'red', background:'#ccc'});
 
     // $('p.para1').css({'color','red'});
@@ -117,5 +116,3 @@ $(document).ready(function(){
     $.each(newArr, function(i,val){
         console.log(val.innerHTML);
     });
-
-});

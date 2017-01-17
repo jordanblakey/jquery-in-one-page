@@ -1,4 +1,3 @@
-$(document).ready(function(){
     // LESSON TWO: SELECTORS
 
     // $('h1').hide();
@@ -105,4 +104,3 @@ $(document).ready(function(){
         var name = $('input#name').val();
         console.log(name);
     });
-});
